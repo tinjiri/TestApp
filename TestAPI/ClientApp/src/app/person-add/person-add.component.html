@@ -1,0 +1,17 @@
+<form>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name"  [(ngModel)]="person.name" name="name" placeholder="name">
+
+  </div>
+  <div class="form-group">
+    <label for="surname">Surname</label>
+    <input type="text" class="form-control" id="surname" [(ngModel)]="person.surname" name="surname" placeholder="surname">
+  </div>
+  <div class="form-group">
+    <label for="dob">Date of birth</label>
+    <input type="text" class="form-control" [(ngModel)]="dateofbirt" id="dob1" name="dateofbirt" placeholder="dob">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="savePerson();">Submit</button>
+</form>
+
