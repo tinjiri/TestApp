@@ -11,6 +11,9 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PersonAddComponent } from './person-add/person-add.component';
 import { PersonListComponent } from './person-list/person-list.component';
+import { Sort } from './models/Sort';
+import { SortDirective } from './directive/sort.directive';
+//import {Sort } from ''
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { PersonListComponent } from './person-list/person-list.component';
     CounterComponent,
     FetchDataComponent,
     PersonListComponent,
-    PersonAddComponent
+    PersonAddComponent,
+    SortDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,7 +39,7 @@ import { PersonListComponent } from './person-list/person-list.component';
     { path: 'addperson', component: PersonAddComponent },
 ], { relativeLinkResolution: 'legacy' })
   ],
-  providers: [],
+  providers: [Sort],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

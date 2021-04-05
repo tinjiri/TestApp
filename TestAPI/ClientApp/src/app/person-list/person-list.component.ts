@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { PersonServiceService } from '../api/person-service.service';
 import { Person, PersonDto } from '../models/Person';
+import { Sort } from '../models/Sort';
+
 
 @Component({
   selector: 'app-person-list',
@@ -10,13 +12,11 @@ import { Person, PersonDto } from '../models/Person';
 })
 export class PersonListComponent implements OnInit {
   personlist:Person[]=[];
-  count:number;
- 
+  count:number; 
 
-  constructor(private personService: PersonServiceService, private router: Router) { }
+  constructor(private personService: PersonServiceService, private router: Router, sort: Sort) { }
 
-  ngOnInit(): void {
-    //this.personlist=[{"name":"test","surname":"bob", "dateOfBirth":"2002-02-03"}];
+  ngOnInit(): void {   
     this.getPeople();
   }
 
@@ -26,6 +26,7 @@ export class PersonListComponent implements OnInit {
     this.personService.get().subscribe(resp => {
       console.log(resp);
       this.personlist=resp;
+      this.count=this.personlist.length;
       /*const keys = resp.headers.keys();
       this.headers = keys.map(key =>
         `${key}: ${resp.headers.get(key)}`);
@@ -35,7 +36,6 @@ export class PersonListComponent implements OnInit {
       }
       console.log(this.smartphone);*/
     });
-    this.count=this.personlist.length;
   }
 /*
   getSmartphones() {

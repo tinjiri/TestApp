@@ -3,10 +3,11 @@
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="personlist">
   <thead>
     <tr>
-      <th  >Name</th>    
-      <th >Surname</th>    
-      <th  >Date of birth</th>  
-     
+      <!--[appSort]="personlist" data-order="desc" data-name="name" scope="col"-->
+      <th [appSort]="personlist" data-order="desc" data-name="name" scope="col">Name</th>
+      <th  [appSort]="personlist" data-order="desc" data-name="surname" scope="col">Surname</th>
+      <th  [appSort]="personlist" data-order="desc" data-name="dateOfBirth" scope="col">Date of birth</th>
+
     </tr>
   </thead>
   <tbody>
@@ -18,7 +19,7 @@
   </tbody>
 </table>
 <div>   
-    <p>Number of people : {{count}}</p>>
+    <p>Number of people : {{count}}</p>
 </div>
 <div>   
     <button type="submit" class="btn" (click)="btnClick();">Add Person</button>
